@@ -83,13 +83,7 @@ module Jekyll
       end
 
       def is_git_repo?(site_source)
-        @is_git_repo ||= begin
-          Dir.chdir(site_source) do
-            Executor.sh("git", "rev-parse", "--is-inside-work-tree").eql? "true"
-          end
-        rescue
-          false
-        end
+        false
       end
 
       def mtime(file)
